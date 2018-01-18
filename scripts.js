@@ -3,6 +3,7 @@ class Shape {
     constructor() {
         this.div = $("<div></div");
         $(this.div).click(this.describe.bind(this));
+        $(this.div).dblclick(this.delete);
     }
 
     setCoords() {
@@ -32,6 +33,10 @@ class Shape {
         <br/>Area: ${this.area}
         <br/>Perimeter: ${this.perimeter}`;
         $(data).html(this.text);
+    }
+
+    delete() {
+        this.remove();
     }
 
 }
