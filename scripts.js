@@ -1,23 +1,28 @@
 class Shape {
 
     constructor() {
-        this.name;
-        this.width;
-        this.height;
-        this.radius;
-        this.area;
-        this.perimeter;
-        this.x;
-        this.y;
         this.div = $("<div></div");
+
     }
 
-    getArea() { }
-    getPerimeter() { }
-    draw() { }
     setCoords() {
         this.x = Math.floor(Math.random() * (601 - this.width));
         this.y = Math.floor(Math.random() * (601 - this.height));
+    }
+
+    style() {
+        $(this.div).css({
+            "position": "absolute",
+            "background-color": this.color,
+            "width": this.width + "px",
+            "height": this.height + "px",
+            "left": this.x,
+            "top": this.y,
+        });
+    }
+
+    draw() {
+        $(this.div).appendTo(shapeContainer);
     }
 
 }
@@ -27,12 +32,14 @@ class Rectangle extends Shape {
     constructor(width, height) {
         super();
         this.name = "Rectangle";
+        this.color = "green";
         this.width = width;
         this.height = height;
         this.radius = "";
         this.area = this.getArea();
         this.perimeter = this.getPerimeter();
         this.setCoords();
+        this.style();
         this.draw();
     }
 
@@ -44,18 +51,6 @@ class Rectangle extends Shape {
         return 2 * this.width + 2 * this.height;
     }
 
-    draw() {
-        $(this.div).css({
-            "position": "absolute",
-            "background-color": "green",
-            "width": this.width + "px",
-            "height": this.height + "px",
-            "left": this.x,
-            "top": this.y,
-        });
-        $(this.div).appendTo(shapeContainer);
-    }
-
 }
 
 class Square extends Shape {
@@ -63,6 +58,7 @@ class Square extends Shape {
     constructor(sideLength) {
         super();
         this.name = "Square";
+        this.color = "red";
         this.sideLength = sideLength;
         this.width = sideLength;
         this.height = sideLength;
@@ -70,6 +66,7 @@ class Square extends Shape {
         this.area = this.getArea();
         this.perimeter = this.getPerimeter();
         this.setCoords();
+        this.style();
         this.draw();
     }
 
@@ -81,18 +78,6 @@ class Square extends Shape {
         return 4 * this.sideLength;
     }
 
-    draw() {
-        $(this.div).css({
-            "position": "absolute",
-            "background-color": "red",
-            "width": this.width + "px",
-            "height": this.height + "px",
-            "left": this.x,
-            "top": this.y,
-        });
-        $(this.div).appendTo(shapeContainer);
-    }
-
 }
 
 class Circle extends Shape {
@@ -100,12 +85,14 @@ class Circle extends Shape {
     constructor(radius) {
         super();
         this.name = "Circle";
+        this.color = "purple";
         this.width = radius * 2;
         this.height = radius * 2;
         this.radius = radius;
         this.area = this.getArea();
         this.perimeter = this.getPerimeter();
         this.setCoords();
+        this.style();
         this.draw();
     }
 
@@ -117,7 +104,7 @@ class Circle extends Shape {
         return 2 * Math.PI * this.radius;
     }
 
-    draw() {
+    style() {
         $(this.div).css({
             "position": "absolute",
             "background-color": "purple",
@@ -128,7 +115,6 @@ class Circle extends Shape {
             "-moz-border-radius": this.radius + "px",
             "-webkit-border-radius": this.radius + "px",
         });
-        $(this.div).appendTo(shapeContainer);
     }
 
 }
@@ -138,12 +124,14 @@ class Triangle extends Shape {
     constructor(height) {
         super();
         this.name = "Triangle";
+        this.color = "yellow";
         this.width = height;
         this.height = height;
         this.radius = "";
         this.area = this.getArea();
         this.perimeter = this.getPerimeter();
         this.setCoords();
+        this.style();
         this.draw();
     }
 
@@ -155,7 +143,7 @@ class Triangle extends Shape {
         return 2 * this.height + Math.pow(Math.pow(this.height, 2) + Math.pow(this.height, 2), 0.5)
     }
 
-    draw() {
+    style() {
         $(this.div).css({
             "position": "absolute",
             "width": 0 + "px",
@@ -165,7 +153,6 @@ class Triangle extends Shape {
             "border-bottom": this.width + "px solid yellow",
             "border-right": this.width + "px solid transparent",
         });
-        $(this.div).appendTo(shapeContainer);
     }
 
 }
