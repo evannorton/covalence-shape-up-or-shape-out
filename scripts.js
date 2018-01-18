@@ -2,7 +2,7 @@ class Shape {
 
     constructor() {
         this.div = $("<div></div");
-        $(this).click(describe);
+        $(this.div).click(this.describe.bind(this));
     }
 
     setCoords() {
@@ -26,7 +26,12 @@ class Shape {
     }
 
     describe() {
-
+        this.text = `Shape Name: ${this.name}<br>Width: ${this.width}
+        <br/>Height: ${this.height}
+        <br/>Radius: ${this.radius}
+        <br/>Area: ${this.area}
+        <br/>Perimeter: ${this.perimeter}`;
+        $(data).html(this.text);
     }
 
 }
@@ -39,7 +44,7 @@ class Rectangle extends Shape {
         this.color = "green";
         this.width = width;
         this.height = height;
-        this.radius = "";
+        this.radius = "N/A";
         this.area = this.getArea();
         this.perimeter = this.getPerimeter();
         this.setCoords();
@@ -66,7 +71,7 @@ class Square extends Shape {
         this.sideLength = sideLength;
         this.width = sideLength;
         this.height = sideLength;
-        this.radius = "";
+        this.radius = "N/A";
         this.area = this.getArea();
         this.perimeter = this.getPerimeter();
         this.setCoords();
@@ -131,7 +136,7 @@ class Triangle extends Shape {
         this.color = "yellow";
         this.width = height;
         this.height = height;
-        this.radius = "";
+        this.radius = "N/A";
         this.area = this.getArea();
         this.perimeter = this.getPerimeter();
         this.setCoords();
@@ -162,6 +167,7 @@ class Triangle extends Shape {
 }
 
 let shapeContainer = $("#shape-container");
+let data = $("p");
 
 let rectangleButton = $("#rectangle-button");
 let squareButton = $("#square-button");
