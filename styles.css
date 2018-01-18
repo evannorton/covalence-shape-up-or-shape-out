@@ -1,0 +1,18 @@
+body {
+    margin-top: 3em;
+}
+
+h1 {
+    text-align: center;
+}
+
+#shape-titles {
+    margin-bottom: 1em;
+}
+
+#input-container {
+    padding-top: 1em;
+    width: 65%;
+    background-color: rgb(190, 190, 190);
+    padding-bottom: 1.5em;
+}
