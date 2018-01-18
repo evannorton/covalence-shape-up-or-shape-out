@@ -4,8 +4,13 @@ body {
     background-image: url("http://supernovathemes.com/wp-content/themes/supernovathemes/images/bg/b1.png");
 }
 
+label {
+    user-select: none;
+}
+
 h1 {
     text-align: center;
+    user-select: none;
 }
 
 #shape-titles {
