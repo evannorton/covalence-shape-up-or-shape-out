@@ -2,7 +2,7 @@ class Shape {
 
     constructor() {
         this.div = $("<div></div");
-
+        $(this).click(describe);
     }
 
     setCoords() {
@@ -23,6 +23,10 @@ class Shape {
 
     draw() {
         $(this.div).appendTo(shapeContainer);
+    }
+
+    describe() {
+
     }
 
 }

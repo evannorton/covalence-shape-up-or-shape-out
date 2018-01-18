@@ -13,6 +13,15 @@ h1 {
     user-select: none;
 }
 
+h2 {
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+p {
+    margin-left: 1em;
+}
+
 #input-container {
     padding-top: 1em;
     width: 95%;
@@ -33,6 +42,14 @@ h1 {
 #shape-container {
     position: relative;
     width: 600px;
+    height: 600px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+#data-container {
+    position: relative;
+    width: 300px;
     height: 600px;
     background-color: white;
     border: 1px solid black;
