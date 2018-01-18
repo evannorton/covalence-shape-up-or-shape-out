@@ -35,8 +35,9 @@ h1 {
 }
 
 #shape-container {
+    position: relative;
     width: 600px;
     height: 600px;
-    background-color: rgb(255, 255, 177);
+    background-color: white;
     border: 1px solid black;
 }
