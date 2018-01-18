@@ -28,7 +28,7 @@ h1 {
 
 #content-container {
     width: 70%;
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(190, 190, 190);
     border: 1px solid black;
     padding-top: 2em;
     padding-bottom: 2em;
@@ -37,6 +37,6 @@ h1 {
 #shape-container {
     width: 600px;
     height: 600px;
-    background-color: rgba(255, 255, 0, 0.2);
+    background-color: rgb(255, 255, 177);
     border: 1px solid black;
 }

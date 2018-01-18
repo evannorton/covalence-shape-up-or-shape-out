@@ -7,15 +7,15 @@ class Shape {
         this.radius;
         this.area;
         this.perimeter;
-        this.x = Math.floor(Math.random() * 601);
-        this.y = Math.floor(Math.random() * 601);
+        this.x;
+        this.y;
     }
 
     getArea(){}
     getPerimeter(){}
     setCoords() {
-        this.x -= this.width;
-        this.y -= this.height;
+        this.x = Math.floor(Math.random() * (601 - this.width));
+        this.y = Math.floor(Math.random() * (601 - this.height));
     }
 
 }
@@ -114,6 +114,52 @@ class Triangle extends Shape {
 }
 
 let rectangleButton = $("#rectangle-button");
-let squareButton = $("#rectangle-button");
-let circleButton = $("#rectangle-button");
-let triangleButton = $("#rectangle-button");
+let squareButton = $("#square-button");
+let circleButton = $("#circle-button");
+let triangleButton = $("#triangle-button");
+
+let rectangleWidth = $("#rectangleWidth");
+let rectangleHeight = $("#rectangleHeight");
+let squareSideLength = $("#squareSideLength");
+let circleRadius = $("#circleRadius");
+let triangleHeight = $("#triangleHeight");
+
+$(rectangleButton).click(() => {
+    if((rectangleWidth.val() >= 1 && rectangleWidth.val() <= 600) && (rectangleHeight.val() >= 1 && rectangleHeight.val() <= 600)) {
+        let rectangle = new Rectangle(rectangleWidth.val(), rectangleHeight.val());
+        console.log(rectangle);
+    }
+    else {
+        alert("Please enter a width and height between 1 and 600 for the rectangle.");
+    }
+});
+
+$(squareButton).click(() => {
+    if(squareSideLength.val() >= 1 && squareSideLength.val() <= 600) {
+        let square = new Square(squareSideLength.val());
+        console.log(square);
+    }
+    else {
+        alert("Please enter a side length between 1 and 600 for the square.");
+    }
+});
+
+$(circleButton).click(() => {
+    if(circleRadius.val() >= 1 && circleRadius.val() <= 300) {
+        let circle = new Circle(circleRadius.val());
+        console.log(circle);
+    }
+    else {
+        alert("Please enter a radius between 1 an 300 for the circle.");
+    }
+});
+
+$(triangleButton).click(() => {
+    if(triangleHeight.val() >= 1 && triangleHeight.val() <= 600) {
+        let triangle = new Triangle(triangleHeight.val());
+        console.log(triangle);
+    }
+    else {
+        alert("Please enter a height between 1 and 600 for the triangle.");
+    }
+});
