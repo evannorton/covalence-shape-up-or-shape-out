@@ -27,16 +27,18 @@ class Shape {
     }
 
     describe() {
-        this.text = `Shape Name: ${this.name}<br>Width: ${this.width}
-        <br/>Height: ${this.height}
-        <br/>Radius: ${this.radius}
-        <br/>Area: ${this.area}
-        <br/>Perimeter: ${this.perimeter}`;
+        this.text = `<b>Shape Name:</b> ${this.name}
+        <br><b>Width:</b> ${this.width}
+        <br/><b>Height:</b> ${this.height}
+        <br/><b>Radius:</b> ${this.radius}
+        <br/><b>Area:</b> ${this.area}
+        <br/><b>Perimeter:</b> ${this.perimeter}`;
         $(data).html(this.text);
     }
 
     delete() {
         this.remove();
+        $(data).html("");
     }
 
 }
