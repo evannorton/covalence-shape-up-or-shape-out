@@ -1,16 +1,21 @@
 class Shape {
 
     constructor() {
+        //create div to display shape
         this.div = $("<div></div");
+        //describe() method on click
         $(this.div).click(this.describe.bind(this));
+        //delete() method on doubleclick
         $(this.div).dblclick(this.delete);
     }
 
+    //set x and y coordinates to random values between 0 and 600 - width/height
     setCoords() {
         this.x = Math.floor(Math.random() * (601 - this.width));
         this.y = Math.floor(Math.random() * (601 - this.height));
     }
 
+    //set css properties
     style() {
         $(this.div).css({
             "position": "absolute",
@@ -22,10 +27,12 @@ class Shape {
         });
     }
 
+    //append to shape container
     draw() {
         $(this.div).appendTo(shapeContainer);
     }
 
+    //fill in data sidepanel
     describe() {
         this.text = `<b>Shape Name:</b> ${this.name}
         <br><b>Width:</b> ${this.width}
@@ -36,6 +43,7 @@ class Shape {
         $(data).html(this.text);
     }
 
+    //delete shape and clear data
     delete() {
         this.remove();
         $(data).html("");
@@ -120,6 +128,7 @@ class Circle extends Shape {
         return 2 * Math.PI * this.radius;
     }
 
+    //overwrite parent method
     style() {
         $(this.div).css({
             "position": "absolute",
@@ -159,6 +168,7 @@ class Triangle extends Shape {
         return 2 * this.height + Math.pow(Math.pow(this.height, 2) + Math.pow(this.height, 2), 0.5)
     }
 
+    //overwrite parent method
     style() {
         $(this.div).css({
             "position": "absolute",
@@ -173,6 +183,9 @@ class Triangle extends Shape {
 
 }
 
+
+//vars
+
 let shapeContainer = $("#shape-container");
 let data = $("p");
 
@@ -186,6 +199,9 @@ let rectangleHeight = $("#rectangleHeight");
 let squareSideLength = $("#squareSideLength");
 let circleRadius = $("#circleRadius");
 let triangleHeight = $("#triangleHeight");
+
+
+//button click functions
 
 $(rectangleButton).click(() => {
     if ((rectangleWidth.val() >= 1 && rectangleWidth.val() <= 600) && (rectangleHeight.val() >= 1 && rectangleHeight.val() <= 600)) {
